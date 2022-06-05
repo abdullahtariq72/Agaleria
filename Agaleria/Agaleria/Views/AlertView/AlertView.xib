@@ -1,0 +1,67 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<document type="com.apple.InterfaceBuilder3.CocoaTouch.XIB" version="3.0" toolsVersion="20037" targetRuntime="iOS.CocoaTouch" propertyAccessControl="none" useAutolayout="YES" useTraitCollections="YES" useSafeAreas="YES" colorMatched="YES">
+    <device id="retina6_1" orientation="portrait" appearance="light"/>
+    <dependencies>
+        <deployment identifier="iOS"/>
+        <plugIn identifier="com.apple.InterfaceBuilder.IBCocoaTouchPlugin" version="20020"/>
+        <capability name="Safe area layout guides" minToolsVersion="9.0"/>
+        <capability name="System colors in document resources" minToolsVersion="11.0"/>
+        <capability name="documents saved in the Xcode 8 format" minToolsVersion="8.0"/>
+    </dependencies>
+    <objects>
+        <placeholder placeholderIdentifier="IBFilesOwner" id="-1" userLabel="File's Owner"/>
+        <placeholder placeholderIdentifier="IBFirstResponder" id="-2" customClass="UIResponder"/>
+        <view contentMode="scaleToFill" restorationIdentifier="ErrorView" id="w1c-vj-axC" customClass="AlertView" customModule="Agaleria" customModuleProvider="target">
+            <rect key="frame" x="0.0" y="0.0" width="375" height="47"/>
+            <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
+            <subviews>
+                <view contentMode="scaleToFill" translatesAutoresizingMaskIntoConstraints="NO" id="MVh-N6-SJQ">
+                    <rect key="frame" x="30" y="0.0" width="315" height="47"/>
+                    <subviews>
+                        <label opaque="NO" userInteractionEnabled="NO" contentMode="left" horizontalHuggingPriority="251" verticalHuggingPriority="251" text="Label" lineBreakMode="tailTruncation" numberOfLines="2" baselineAdjustment="alignBaselines" minimumScaleFactor="0.5" translatesAutoresizingMaskIntoConstraints="NO" id="ox6-7h-Qc8">
+                            <rect key="frame" x="20" y="14.5" width="242" height="18"/>
+                            <fontDescription key="fontDescription" name="HiraMinProN-W3" family="Hiragino Mincho ProN" pointSize="18"/>
+                            <nil key="textColor"/>
+                            <nil key="highlightedColor"/>
+                        </label>
+                        <imageView userInteractionEnabled="NO" contentMode="scaleToFill" horizontalHuggingPriority="251" verticalHuggingPriority="251" translatesAutoresizingMaskIntoConstraints="NO" id="gwV-7F-e6o">
+                            <rect key="frame" x="275" y="13.5" width="20" height="20"/>
+                            <constraints>
+                                <constraint firstAttribute="height" constant="20" id="1kf-6A-dU1"/>
+                                <constraint firstAttribute="width" constant="20" id="oUM-vh-ryC"/>
+                            </constraints>
+                        </imageView>
+                    </subviews>
+                    <color key="backgroundColor" systemColor="systemBackgroundColor"/>
+                    <constraints>
+                        <constraint firstAttribute="trailing" secondItem="gwV-7F-e6o" secondAttribute="trailing" constant="20" id="1xK-qb-jIu"/>
+                        <constraint firstItem="ox6-7h-Qc8" firstAttribute="centerY" secondItem="MVh-N6-SJQ" secondAttribute="centerY" id="4m6-oi-Eo0"/>
+                        <constraint firstItem="gwV-7F-e6o" firstAttribute="centerY" secondItem="ox6-7h-Qc8" secondAttribute="centerY" id="gUe-qi-I41"/>
+                        <constraint firstItem="ox6-7h-Qc8" firstAttribute="leading" secondItem="MVh-N6-SJQ" secondAttribute="leading" constant="20" id="xsU-Df-6q2"/>
+                        <constraint firstAttribute="trailing" secondItem="ox6-7h-Qc8" secondAttribute="trailing" constant="53" id="zfv-1s-rDZ"/>
+                    </constraints>
+                </view>
+            </subviews>
+            <viewLayoutGuide key="safeArea" id="yBh-VT-3nf"/>
+            <color key="backgroundColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+            <constraints>
+                <constraint firstItem="MVh-N6-SJQ" firstAttribute="top" secondItem="w1c-vj-axC" secondAttribute="top" id="G34-wj-RoS"/>
+                <constraint firstAttribute="bottom" secondItem="MVh-N6-SJQ" secondAttribute="bottom" id="q8k-EM-Igh"/>
+                <constraint firstItem="MVh-N6-SJQ" firstAttribute="leading" secondItem="w1c-vj-axC" secondAttribute="leading" constant="30" id="vwS-sq-cur"/>
+                <constraint firstAttribute="trailing" secondItem="MVh-N6-SJQ" secondAttribute="trailing" constant="30" id="wqK-IU-opp"/>
+            </constraints>
+            <freeformSimulatedSizeMetrics key="simulatedDestinationMetrics"/>
+            <connections>
+                <outlet property="messageView" destination="MVh-N6-SJQ" id="s8c-9Y-OG1"/>
+                <outlet property="msgLabel" destination="ox6-7h-Qc8" id="znB-Ha-Q65"/>
+                <outlet property="statusIcon" destination="gwV-7F-e6o" id="We2-B0-gbe"/>
+            </connections>
+            <point key="canvasLocation" x="-18.115942028985508" y="39.84375"/>
+        </view>
+    </objects>
+    <resources>
+        <systemColor name="systemBackgroundColor">
+            <color white="1" alpha="1" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
+        </systemColor>
+    </resources>
+</document>

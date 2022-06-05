@@ -1,0 +1,6 @@
+framework module Pods_Agaleria {
+  umbrella header "Pods-Agaleria-umbrella.h"
+
+  export *
+  module * { export * }
+}
