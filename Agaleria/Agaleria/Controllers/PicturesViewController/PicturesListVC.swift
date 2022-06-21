@@ -12,7 +12,7 @@ class PicturesListVC: UIViewController {
     
     //MARK: - IBOutlets
     @IBOutlet weak var picturesTableView: UITableView!
-    
+    private var imageViewerVC: ImageViewerVC?
     //MARK: - DataMemebers
     private var picturesViewModel = PicturesViewModel()
     var floatingButton: UIButton!
@@ -168,16 +168,18 @@ extension PicturesListVC: PictureTableViewCellProtocol {
     func didTapOnImage(index: Int) {
         self.floatingButton.isHidden = true
         guard let pictures = picturesViewModel.pictures else {return}
-        AppUtility.sharedInstance.reteriveCachedImage(key: pictures[index].downloadURL, completion: { image in
+        AppUtility.sharedInstance.reteriveCachedImage(key: pictures[index].downloadURL, completion: { [weak self] image in
             if let imageToView = image {
-                let imageViewerVC = Storyboards.MAIN.instantiateViewController(withIdentifier: Controllers.IMAGEVIEWERVC) as! ImageViewerVC
-                imageViewerVC.modelImage = imageToView
-                imageViewerVC.didDismissVC = {
-                    self.floatingButton.isHidden = false
+                if self?.imageViewerVC == nil{
+                    self?.imageViewerVC = Storyboards.MAIN.instantiateViewController(withIdentifier: Controllers.IMAGEVIEWERVC) as? ImageViewerVC
                 }
-                imageViewerVC.modalPresentationStyle = .overCurrentContext
-                imageViewerVC.modalTransitionStyle = .coverVertical
-                self.present(imageViewerVC, animated: true)
+                self?.imageViewerVC?.modelImage = imageToView
+                self?.imageViewerVC?.didDismissVC = {
+                    self?.floatingButton.isHidden = false
+                }
+                self?.imageViewerVC?.modalPresentationStyle = .overCurrentContext
+                self?.imageViewerVC?.modalTransitionStyle = .coverVertical
+                self!.present(self!.imageViewerVC!, animated: true)
             }
         })
     }
